@@ -1,8 +1,10 @@
 <template>
-  <div class="todo-container">
-      <h1>Todo</h1>
-      <todo-list :todos="todos"></todo-list>
-      <create-todo @add-todo="addToDo"></create-todo>
+  <div class="root"> 
+      <div class="todo-container">
+        <h1>Todo List</h1>
+        <todo-list :todos="todos" @complete-todo="completeToDo"></todo-list>
+      </div> 
+       <create-todo @add-todo="addToDo"></create-todo>
   </div>
 </template>
 
@@ -22,18 +24,30 @@ export default {
     },
     methods: {
         addToDo(todo){
-            this.todos.push(todo)
+            const newTodo = {
+                name: todo,
+                completed: false,
+            }
+            this.todos.push(newTodo)
+        },
+        completeToDo(id){
+            this.todos[id].completed = !this.todos[id].completed
+            console.log(this.todos[id].completed)
         }
     }
 }
 </script>
     
 <style>
-.todo-container{
-    border: 1px solid gray;
+.root{
     width: 40%;
     margin: auto;
+    border: 1px solid gray;
     padding: 2%;
+    background: white;
+}
+.todo-container{
+    min-height: 100px;
 }
 
 </style>
