@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div class="backboard"></div>
     <todo></todo>
   </div>
 </template>
@@ -36,15 +37,22 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
 	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
+  border: 0;
+  font-size: 62.5%;
 	vertical-align: baseline;
 }
 
 * {
   box-sizing: border-box;
 }
+
+body {
+   font-size: 1.4rem;
+}
+
+
+
+h1 { font-size: 2.4rem; } 
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -56,7 +64,7 @@ time, mark, audio, video {
 }
 
 h1, h2 {
-  font-weight: normal;
+  font-weight: normal;  
 }
 
 ul {
@@ -71,5 +79,15 @@ li {
 
 a {
   color: #42b983;
+}
+
+.backboard{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to right, rgb(69, 67, 218), rgb(255, 126, 186));
+  z-index: -1;
 }
 </style>
